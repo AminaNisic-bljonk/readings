@@ -1,0 +1,18 @@
+{
+    "name": "vendor/readings",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Readings\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AminaNisic-bljonk",
+            "email": "amina.nisic@stu.ibu.edu.ba"
+        }
+    ],
+    "require": {
+        "mikecao/flight": "^2.0"
+    }
+}
