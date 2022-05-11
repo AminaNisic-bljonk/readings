@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-size: 28px;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("gradient.jpg");
+  background-image: url("../images/backgroundgradient.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -27,6 +27,10 @@ li {
 
 li:first-child {
     float: left;
+}
+
+#navbar ul{
+  list-style: none;
 }
 
 #navbar {
