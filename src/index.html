@@ -17,8 +17,8 @@
   <div id="navbar">
     <ul>
      <li><a class="active" href="javascript:void(0)"><img src="./images/icon1.png" style="width:30px;height:30px;">VESNA TAROT</a></li>
-     <li><button id="sign-in" type="button" class="btn btn-outline-light" data-bs-toggle="modal"
-                        data-bs-target="#modalFormLog">Log In</button></li>
+     <li><button id="sign-in" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalFormLog">Log In</button></li>
+     <li><button id="sign-out" type="button" class="btn btn-outline-light" onclick="UserService.logout()">Sign out</button></li>
      <li><a href="javascript:void(0)">Natal chart</a></li>
      <li><a href="javascript:void(0)">Spreads</a></li>
      <li><a href="javascript:void(0)">Draw a card</a></li>
@@ -28,7 +28,7 @@
 
 <!--placeholder ime nemojte me + main content-->
 <div id="caption">
-    <h1>WELCOME TO VESNA TAROT</h1>
+    <h1 id="welcome">WELCOME TO VESNA TAROT</h1>
     <h3>Flip the card to reveal today's fortune!</h3>
 </div>
 
@@ -45,7 +45,7 @@
 </div>
 
 <!--login and signup modal-->
-<div class="modal fade" id="modalFormLog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade text-white" id="modalFormLog" aria-labelledby="exampleModalLabel" aria-hidden="true">
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
@@ -81,7 +81,7 @@
 
    <!-- MODAL SIGN UP -->
 
-   <div class="modal fade" id="modalFormSign" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal fade text-white" id="modalFormSign" aria-labelledby="exampleModalLabel" aria-hidden="true">
        <div class="modal-dialog">
            <div class="modal-content">
                <div class="modal-header">
