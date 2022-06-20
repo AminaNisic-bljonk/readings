@@ -150,6 +150,8 @@ var UserService = {
 
                 toastr.success('You have been succesfully registered.');
                 localStorage.clear();
+                localStorage.setItem("token", data.token);
+                window.location.replace("index.html");
                 console.log("data");
 
             },
