@@ -5,6 +5,9 @@ var MeaningService = {
           url: 'rest/card/1',
           contentType: "application/json",
           dataType: "json",
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', localStorage.getItem("token"));
+        },
 
           success: function (data) {
             var HTML="";

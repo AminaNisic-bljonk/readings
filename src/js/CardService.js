@@ -1,12 +1,19 @@
 var CardService = {
+    cardId:"",
     init: function(){
       $.ajax({
           type: "GET",
           url: 'rest/random/' ,
           contentType: "application/json",
           dataType: "json",
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', localStorage.getItem("token"));
+        },
+
 
           success: function (data) {
+            cardId = data.id;
+            console.log(cardId);
             var HTML="";
             HTML+=`<div class="flip-card">
               <div class="flip-card-inner">
@@ -14,10 +21,11 @@ var CardService = {
                   <img src="./images/cardback.png" alt="card" style="width:280px;height:450px;">
                 </div>
                 <div class="flip-card-back">
-                <input id="shownCard" type="image" src="./images/cards/`+data.id+`.jpg" alt="card" style="width:280px;height:450px;">
+                <input id="shownCard" type="image" src="images/cards/`+data.id+`.jpg" alt="card" style="width:280px;height:450px;">
                 </div>
               </div>
-            </div>`
+            </div>
+            <button onclick="FavouriteCardService.addFavourite();">Add to favourites</button>`
             $("#cardContainer").html(HTML);
             $(document).ready(function() {
               $('#shownCard').click(function() {
@@ -46,6 +54,10 @@ ShowMeaning: function(id){
       url: 'rest/card/'+id,
       contentType: "application/json",
       dataType: "json",
+
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', localStorage.getItem("token"));
+    },
 
       success: function (data) {
 

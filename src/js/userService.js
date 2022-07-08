@@ -1,4 +1,5 @@
 var UserService = {
+    parsedUser:"",
     init: function () {
         var token = localStorage.getItem("token");
         if (token) {
@@ -10,7 +11,7 @@ var UserService = {
         var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
-        var parsedUser = JSON.parse(jsonPayload);
+        parsedUser = JSON.parse(jsonPayload);
         console.log(parsedUser.username);
         document.getElementById("welcome").innerHTML = "Hi, "+parsedUser.username +"! WELCOME TO TAROTHEAD";
 
@@ -141,7 +142,7 @@ var UserService = {
         console.log(JSON.stringify(user));
         $.ajax({
             type: "POST",
-            url: ' /project/src/rest/register',
+            url: ' rest/register',
             data: JSON.stringify(user),
             contentType: "application/json",
             dataType: "json",

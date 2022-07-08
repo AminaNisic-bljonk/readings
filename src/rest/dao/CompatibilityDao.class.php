@@ -1,0 +1,17 @@
+<?php
+require_once __DIR__.'/BaseDao.class.php';
+
+class CompatibilityDao extends BaseDao {
+
+  /**
+  * constructor of dao class
+  */
+  public function __construct(){
+    parent::__construct("compatibility");
+  }
+
+  public function getCompatibility($sign1,$sign2){
+    return $this->query2("select * from compatibility where sign1=$sign1 AND sign2=$sign2;", ['sign1' => $sign1,'sign2' => $sign2]);
+  }
+
+}
