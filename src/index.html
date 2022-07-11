@@ -1,167 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" href="./css/style.css">
-      <title>Vesna Tarot</title>
 
-      <link rel="icon" type="image/x-icon" href="./images/icon1.png">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Tarothead</title>
+
+    <link rel="icon" type="image/x-icon" href="./images/icon1.png">
 </head>
 
-<body>
+<body style="background-image: url('images/backgroundgradient.png'); font-size: 20px;" id="background"
+    class="d-flex flex-column min-vh-100">
 
-  <!--navbar-->
-  <div id="navbar">
-    <ul>
-     <li><a class="active" href="javascript:void(0)"><img src="./images/icon1.png" style="width:30px;height:30px;">VESNA TAROT</a></li>
-     <li><button id="sign-in" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalFormLog">Log In</button></li>
-     <li><button id="sign-out" type="button" class="btn btn-outline-light" onclick="UserService.logout()">Sign out</button></li>
-     <li><a href="horoscope.html">Daily Horoscope</a></li>
-     <li><a href="javascript:void(0)">Natal chart</a></li>
-     <li><a href="javascript:void(0)">Spreads</a></li>
-     <li><a href="javascript:void(0)">Draw a card</a></li>
-     <li><a href="javascript:void(0)">Card meanings</a></li>
-</div>
+    <!--LOGIN-->
 
+    <div class="d-none" id="LogIn">
+        <section class="vh-100 gradient-custom d-none">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
 
-<!--placeholder ime nemojte me + main content-->
-<div id="MainContainer"
-  <div id="caption">
-      <h1 id="welcome">WELCOME TO VESNA TAROT</h1>
-      <h3>Flip the card to reveal today's fortune!</h3>
-  </div>
+                                <div class="mb-md-5 mt-md-4 pb-5">
+                                    <form id="login-form">
+                                        <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                                        <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
-  <!--cardflip but placeholder jer ne znam još-->
-  <div id="cardContainer">
-  </div>
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                            <label class="form-label" for="typeEmailX">Email</label>
+                                        </div>
 
-<div id="staticImage">
-</div>
-  <p>click on card to get meaning</p>
-</div>
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="password" id="typePasswordX"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="typePasswordX">Password</label>
+                                        </div>
 
-<div id="card" class="d-none">
+                                        <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
+                                                password?</a>
+                                        </p>
 
-</div>
+                                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Don't have an account? <a href="#!"
+                                            class="text-white-50 fw-bold">Sign
+                                            Up</a>
+                                    </p>
+                                </div>
 
-<!--login and signup modal-->
-<div class="modal fade text-white" id="modalFormLog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog">
-           <div class="modal-content">
-               <div class="modal-header">
-                   <h5 class="modal-title text-white" id="exampleModalLabel">Please Log In to your account</h5>
-                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                   <form id="login-form">
-                       <div class="mb-3">
-                           <label class="form-label text-white">Email Address</label>
-                           <input type="text" class="form-control" id="emailLogIn" name="emailLogIn"
-                               placeholder="Enter your email address" />
-                       </div>
-                       <div class="mb-3">
-                           <label class="form-label text-white">Password</label>
-                           <input type="password" class="form-control" id="passwordLogIn" name="passwordLogIn"
-                               placeholder="Enter your password" />
-                       </div>
-                       <div class="mb-3 form-check">
-                           <input type="checkbox" class="form-check-input" id="rememberMeLogIn" />
-                           <label class="form-check-label text-white" for="rememberMeSignIn">Remember me</label>
-                       </div>
-                       <div class="modal-footer d-block">
-                           <p class="float-start text-white p-2">Don't have an account yet ? <a class="text-white" data-dismiss="modal"
-                                   href="#" data-bs-toggle="modal" data-bs-target="#modalFormSign">Sign Up</a></p>
-                           <button type="submit" class="btn btn-danger float-end">Log In</button>
-                       </div>
-                   </form>
-               </div>
-           </div>
-       </div>
-   </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-   <!-- MODAL SIGN UP -->
+    <!--REGISTER-->
 
-   <div class="modal fade text-white" id="modalFormSign" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog">
-           <div class="modal-content">
-               <div class="modal-header">
-                   <h5 class="modal-title text-white" id="exampleModalLabel"> Create an account </h5>
-                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                   <form id="signup-form">
-                       <div class="mb-3">
-                           <label class="form-label text-white">Email Address</label>
-                           <input type="text" class="form-control" id="emailSignUp" name="emailSignUp"
-                               placeholder="Enter your email address" />
-                       </div>
-                       <div class="mb-3">
-                           <label class="form-label text-white">Username</label>
-                           <input type="text" class="form-control" id="usernameSignUp" name="usernameSignUp"
-                               placeholder="Enter your username" />
-                       </div>
-                       <div class="mb-3">
-                           <label class="form-label text-white">Password</label>
-                           <input type="password" class="form-control" id="passwordSignUp" name="passwordSignUp"
-                               placeholder="Enter your password" />
-                       </div>
-                       <div class="mb-3">
-                           <label class="form-label text-white">Confirm your Password</label>
-                           <input type="password" class="form-control" id="passwordSignUpConfirm"
-                               name="passwordSignUpConfirm" placeholder="Confirm your password" />
-                       </div>
-                       <div class="mb-3 form-check">
-                           <input type="checkbox" class="form-check-input" id="rememberMeSignUp" />
-                           <label class="form-check-label text-white" for="rememberMeSignUp">Remember me</label>
-                       </div>
-                       <div class="modal-footer d-block">
-                           <p class="float-start text-white p-2">Already have an account ? <a class="text-white"
-                                   href="#" data-bs-toggle="modal" data-bs-target="#modalFormLog">Log In</a></p>
-                           <button id="buttonSignUp" type="submit" class="btn btn-danger float-end">Sign Up</button>
-                       </div>
-               </div>
-               </form>
-           </div>
-       </div>
-   </div>
+    <div class="d-none" id="Register">
+        <section class="vh-100 gradient-custom d-none">
+            <div class=" container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
 
-<!--bootstrap thing-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                                <div class="mb-md-5 mt-md-4 pb-5">
+                                    <form id="signup-form">
+                                        <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                                        <p class="text-white-50 mb-5">Please enter your information!</p>
 
-<!--script for sticky navbar-->
-  <script>
-window.onscroll = function() {myFunction()};
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                            <label class="form-label" for="typeEmailX">Email</label>
+                                        </div>
 
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="username" id="typeEmailX"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="typeEmailX">Username</label>
+                                        </div>
 
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="password" id="typePasswordX"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="typePasswordX">Password</label>
+                                        </div>
 
-// Get the modal
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="password" id="typePasswordX"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="typePasswordX">Confirm Password</label>
+                                        </div>
 
 
-</script>
-<script src="js\jquery-3.6.0.min.js"></script>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js\UserService.js"></script>
-<script type="text/javascript" src="js\CardService.js"></script>
-<script type="text/javascript" src="js\MeaningService.js"></script>
-<script type="text/javascript" src="js\FavouriteCardService.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script>  UserService.init();</script>
-<script>  CardService.init();</script>
-<script>  MeaningService.init();</script>
-<script>  FavouriteCardService.init()</script>
+                                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Already have an account? <a href="#!"
+                                            class="text-white-50 fw-bold">Log
+                                            In</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--NAVBAR-->
+
+    <div class="" id="Navbar">
+        <div style="font-size: 25px;">
+            <nav class="navbar navbar-expand-sm navbar-light" aria-label="navbar" id="navbar">
+                <div class="container-fluid" id="navbar-container">
+                    <a class="navbar-brand ms-3" id="navbar-brand" style="font-size: 33px; margin-right: 30px;"
+                        onclick="showMain()">Tarothead</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarsExample03">
+                        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" onclick="showHoroscope()">Horoscope</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" onclick="showCompatibility()">Compatibility</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" onclick="showFavouriteCards()">Favourite
+                                    Cards</a>
+                            </li>
+                        </ul>
+                        <!-- LOG IN -->
+                        <button id="sign-in" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                            data-bs-target="#modalFormLog">Log In</button>
+                        <a class="nav-link active text-dark" id="or">or</a>
+                        <button id="sign-up" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                            data-bs-target="#modalFormSign">Sign up</button>
+                        <button id="sign-out" type="button" class="btn btn-outline-dark me-4" data-bs-toggle="modal"
+                            data-bs-target="#modalFormSign" onclick="UserService.logout()">Log Out</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!--MAIN-->
+
+    <div class="" id="MainPage">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div id="welcome">
+                        WELCOME TO TAROTHEAD!
+                    </div>
+                    <div class="mb-5">
+                        Flip the card to reveal today's fortune!
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <p class="mb-3">click on card to get meaning</p>
+                    <div id="cardContainer">
+                    </div>
+                    <div id="staticImage">
+                    </div>
+
+                    <div id="card" class="d-none mt-5">
+                    </div>
+                    <button class="d-none" id="addtofavorite" onclick="FavouriteCardService.addFavourite();">Add to
+                        favourites</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--HOROSCOPE-->
+
+    <div id="horoscopegrid" class="d-none">
+        <div class="container mt-5" id="button-container">
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="aries" width="120px" height="120px"><img src="images/ikonice/Aries.png"
+                            alt="horoscope" width="100%" height="100%">Aries</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="taurus" width="120px" height="120px"><img
+                            src="images/ikonice/Taurus.png" alt="horoscope" width="100%" height="100%">Taurus</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="gemini" width="120px" height="120px"><img
+                            src="images/ikonice/Gemini.png" alt="horoscope" width="100%" height="100%">Gemini</button>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="cancer" width="120px" height="120px"><img
+                            src="images/ikonice/Cancer.png" alt="horoscope" width="100%" height="100%">Cancer</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="leo" width="120px" height="120px"><img src="images/ikonice/Leo.png"
+                            alt="horoscope" width="100%" height="100%">Leo</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="scorpio" width="120px" height="120px"><img
+                            src="images/ikonice/Scorpio.png" alt="horoscope" width="100%" height="100%">Scorpio</button>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="libra" width="120px" height="120px"><img src="images/ikonice/Libra.png"
+                            alt="horoscope" width="100%" height="100%">Libra</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="virgo" width="120px" height="120px"><img src="images/ikonice/Virgo.png"
+                            alt="horoscope" width="100%" height="100%">Virgo</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="sagittarius" width="120px" height="120px"><img
+                            src="images/ikonice/Sagittarius.png" alt="horoscope" width="100%"
+                            height="100%">Sagittarius</button>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="capricorn" width="120px" height="120px"><img
+                            src="images/ikonice/Capricorn.png" alt="horoscope" width="100%"
+                            height="100%">Capricorn</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="aquarius" width="120px" height="120px"><img
+                            src="images/ikonice/Aquarius.png" alt="horoscope" width="100%"
+                            height="100%">Aquarius</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="pisces" width="120px" height="120px"><img
+                            src="images/ikonice/Pisces.png" alt="horoscope" width="100%" height="100%">Pisces</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--DAILY HOROSCOPE-->
+
+    <div class="d-none" id="DailyHoroscope">
+        <div class="container" id="day-container">
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="day p-3 bg-transparent border-0" id="yesterday"
+                        style="font-weight:bold; font-size: 27px;">YESTERDAY</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="day p-3 bg-transparent border-0" id="today"
+                        style="font-weight:bold; font-size: 27px;">TODAY</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="day p-3 bg-transparent border-0" id="tomorrow"
+                        style="font-weight:bold; font-size: 27px;">TOMORROW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-none" id="readings-container">
+        <div class="row text-center">
+            <div class="col mt-5 mb-4">
+                <p id="general">treba uraditi</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col mt-4 mb-4">
+                <p id="reading">treba uraditi</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col mt-4 mb-4">
+                <p id="luckynumber">treba uraditi</p>
+            </div>
+        </div>
+    </div>
+
+    <!--FAVOURITES-->
+
+    <div class="d-none" id="Favourites">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-3">
+                    <img src="images/cards/1.jpg" alt="slika" height="550.1235px" style="border-radius: 50px;">
+                </div>
+                <div class="col ms-4">
+                    <div class="mb-5" style="font-size: 27px;">
+                        TITLE
+                    </div>
+                    <div class="mt-5" style="font-size: 25px;">
+                        The topic of this poster is Open Day of the
+                        Academy of Fine Arts Sarajevo. My
+                        colleagues and I had an assignment to
+                        create our own creative design and
+                        afterwards one of the posters would be chosen as the winner. I used the logo of the academy and
+                        incorporated some elements by replacing the logo structure with elements that are recognizable
+                        in
+                        the art world and different majors. Because of that and various other reasons, my poster was
+                        chosen
+                        as the winner.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--COMPATIBILITY-->
+
+    <div class="d-none" id="Compatibility">
+        <div class="container text-center">
+            <div class="row mb-5 mt-5">
+                <div class="col">
+                    <div>COMPATIBLITY</div>
+                </div>
+            </div>
+            <div class="row mb-5 ">
+                <div class="col">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-lg  btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            SIGN 1
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">euw1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">na1</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-lg btn-danger dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                SIGN 2
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="changeButtonText(this.innerText)">eun1</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="changeButtonText(this.innerText)">euw1</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">na1</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5 ">
+                <div class="col">
+                    <button id="SearchButtonInput" type="button" class="btn btn-lg btn-danger"
+                        onclick="RiotService.getSummonerInfo()">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--COMPATIBILITY AFTER SEARCH-->
+
+    <div class="d-none" id="CompatibilityAfterSearch">
+        <div class="container text-center d-none">
+            <div class="row mt-5 mb-5">
+                <div class="col">
+                    <div>
+                        <img src="images/cards/1.jpg" alt="slika" height="550.1235px" style="border-radius: 50px;">
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <img src="images/cards/1.jpg" alt="slika" height="550.1235px" style="border-radius: 50px;">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col">
+                    <div style="font-weight:bold; font-size: 27px;">
+                        SHAZ REKAO RANDOM TEKST
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col">
+                    AJAX CALL TEXT
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showHoroscope() {
+            document.getElementById('horoscopegrid').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('DailyHoroscope').classList.remove('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+        }
+
+        function showCompatibility() {
+            document.getElementById('Compatibility').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+        }
+
+        function showFavouriteCards() {
+            document.getElementById('Favourites').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+        }
+
+        function showMain() {
+            document.getElementById('MainPage').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    </script>
+    <script src="js\jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js\HoroscopeService.js"></script>
+    <script type="text/javascript" src="js\UserService.js"></script>
+    <script type="text/javascript" src="js\CardService.js"></script>
+    <script type="text/javascript" src="js\MeaningService.js"></script>
+    <script type="text/javascript" src="js\FavouriteCardService.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>  UserService.init();</script>
+    <script>  CardService.init();</script>
+    <script>  MeaningService.init();</script>
+    <script>  FavouriteCardService.init()</script>
+    <script>HoroscopeService.init();</script>
 
 </body>
+
 </html>
