@@ -1,5 +1,7 @@
 var FavouriteCardService = {
-
+  init: function () {
+          if (typeof (parsedUser) == 'undefined') $('#favouritesListButton').hide();
+      },
     addFavourite: function () {
         console.log(parsedUser.id)
         var card = new Object();
@@ -22,19 +24,12 @@ var FavouriteCardService = {
 
 
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                //console.log(data);
-                toastr.error(XMLHttpRequest.responseJSON.message);
-                //toastr.error("error");
-                console.log(errorThrown);
-                console.log(textStatus);
-                console.log(JSON.stringify(XMLHttpRequest));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON.message));
+                  toastr.error("This card has alredy been added!");
             }
         });
     },
 
-    init: function () {
+    getFavourites: function () {
         $.ajax({
             type: "POST",
             url: ' rest/favourites',
@@ -47,18 +42,31 @@ var FavouriteCardService = {
 
             success: function (data) {
                 console.log(data);
+                var html="";
+                var i;
+                for(i=0;i<data.length;i++){
+                html+=  `<div class="container">
+                      <div class="row mt-4">
+                          <div class="col-3">
+                              <img src="images/cards/`+data[i].card_id+`.jpg" alt="slika" height="550.1235px" style="border-radius: 50px;">
+                          </div>
+                          <div class="col ms-4">
+                              <div class="mb-5" style="font-size: 27px;">
+                                  `+data[i].CardName+`
+                              </div>
+                              <div class="mt-5" style="font-size: 25px;">
+                                  `+data[i].CardDescription+`
+                              </div>
+                          </div>
+                      </div>
+                  </div>`
+                }
+                $("#Favourites").html(html);
             },
 
 
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                //console.log(data);
-                toastr.error(XMLHttpRequest.responseJSON.message);
-                //toastr.error("error");
-                console.log(errorThrown);
-                console.log(textStatus);
-                console.log(JSON.stringify(XMLHttpRequest));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON.message));
+                  toastr.error("No available cards to show");
             }
         });
 

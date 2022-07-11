@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <title>Tarothead</title>
 
     <link rel="icon" type="image/x-icon" href="./images/icon1.png">
@@ -18,8 +19,8 @@
 
     <!--LOGIN-->
 
-    <div class="d-none" id="LogIn">
-        <section class="vh-100 gradient-custom d-none">
+    <div id="LogIn">
+        <section class="vh-100 gradient-custom">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -27,31 +28,27 @@
                             <div class="card-body p-5 text-center">
 
                                 <div class="mb-md-5 mt-md-4 pb-5">
-                                    <form id="login-form">
+
                                         <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                         <p class="text-white-50 mb-5">Please enter your login and password!</p>
-
+                                    <form id="login-form">
                                         <div class="form-outline form-white mb-4">
-                                            <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Email</label>
+                                            <label class="form-label text-white">Email Address</label>
+                                            <input type="text" class="form-control" id="emailLogIn" name="emailLogIn"
+                                                placeholder="Enter your email address" />
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Password</label>
+                                            <label class="form-label text-white">Password</label>
+                                            <input type="password" class="form-control" id="passwordLogIn" name="passwordLogIn"
+                                                placeholder="Enter your password" />
                                         </div>
-
-                                        <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
-                                                password?</a>
-                                        </p>
-
                                         <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                                     </form>
                                 </div>
                                 <div>
                                     <p class="mb-0">Don't have an account? <a href="#!"
-                                            class="text-white-50 fw-bold">Sign
+                                            class="text-white-50 fw-bold" onclick="showRegister()">Sign
                                             Up</a>
                                     </p>
                                 </div>
@@ -67,7 +64,7 @@
     <!--REGISTER-->
 
     <div class="d-none" id="Register">
-        <section class="vh-100 gradient-custom d-none">
+        <section class="vh-100 gradient-custom">
             <div class=" container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -80,35 +77,36 @@
                                         <p class="text-white-50 mb-5">Please enter your information!</p>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Email</label>
+                                            <label class="form-label text-white">Email Address</label>
+                                            <input type="text" class="form-control" id="emailSignUp" name="emailSignUp"
+                                                placeholder="Enter your email address" />
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="username" id="typeEmailX"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Username</label>
+                                            <label class="form-label text-white">Username</label>
+                                            <input type="text" class="form-control" id="usernameSignUp" name="usernameSignUp"
+                                                 placeholder="Enter your username" />
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Password</label>
+                                            <label class="form-label text-white">Password</label>
+                                            <input type="password" class="form-control" id="passwordSignUp" name="passwordSignUp"
+                                                placeholder="Enter your password" />
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Confirm Password</label>
+                                            <label class="form-label text-white">Confirm your Password</label>
+                                            <input type="password" class="form-control" id="passwordSignUpConfirm"
+                                                name="passwordSignUpConfirm" placeholder="Confirm your password" />
                                         </div>
 
 
-                                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                        <button id="buttonSignUp" class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
                                     </form>
                                 </div>
                                 <div>
                                     <p class="mb-0">Already have an account? <a href="#!"
-                                            class="text-white-50 fw-bold">Log
+                                            class="text-white-50 fw-bold" onclick="showLogIn()">Log
                                             In</a>
                                     </p>
                                 </div>
@@ -122,7 +120,7 @@
 
     <!--NAVBAR-->
 
-    <div class="" id="Navbar">
+    <div class="d-none" id="Navbar">
         <div style="font-size: 25px;">
             <nav class="navbar navbar-expand-sm navbar-light" aria-label="navbar" id="navbar">
                 <div class="container-fluid" id="navbar-container">
@@ -142,7 +140,7 @@
                                 <a class="nav-link active" onclick="showCompatibility()">Compatibility</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" onclick="showFavouriteCards()">Favourite
+                                <a id="favouritesListButton" class="nav-link active" onclick="favouritesList()">Favourite
                                     Cards</a>
                             </li>
                         </ul>
@@ -162,7 +160,7 @@
 
     <!--MAIN-->
 
-    <div class="" id="MainPage">
+    <div class="d-none" id="MainPage">
         <div class="container">
             <div class="row">
                 <div class="col text-center">
@@ -299,30 +297,7 @@
     <!--FAVOURITES-->
 
     <div class="d-none" id="Favourites">
-        <div class="container">
-            <div class="row mt-4">
-                <div class="col-3">
-                    <img src="images/cards/1.jpg" alt="slika" height="550.1235px" style="border-radius: 50px;">
-                </div>
-                <div class="col ms-4">
-                    <div class="mb-5" style="font-size: 27px;">
-                        TITLE
-                    </div>
-                    <div class="mt-5" style="font-size: 25px;">
-                        The topic of this poster is Open Day of the
-                        Academy of Fine Arts Sarajevo. My
-                        colleagues and I had an assignment to
-                        create our own creative design and
-                        afterwards one of the posters would be chosen as the winner. I used the logo of the academy and
-                        incorporated some elements by replacing the logo structure with elements that are recognizable
-                        in
-                        the art world and different majors. Because of that and various other reasons, my poster was
-                        chosen
-                        as the winner.
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <!--COMPATIBILITY-->
@@ -425,6 +400,7 @@
             document.getElementById('readings-container').classList.add('d-none');
             document.getElementById('Favourites').classList.add('d-none');
             document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
             document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
         }
 
@@ -438,6 +414,7 @@
             document.getElementById('Register').classList.add('d-none');
             document.getElementById('MainPage').classList.add('d-none');
             document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
             document.getElementById('Favourites').classList.add('d-none');
         }
 
@@ -452,6 +429,7 @@
             document.getElementById('Register').classList.add('d-none');
             document.getElementById('MainPage').classList.add('d-none');
             document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
         }
 
         function showMain() {
@@ -465,8 +443,44 @@
             document.getElementById('LogIn').classList.add('d-none');
             document.getElementById('Register').classList.add('d-none');
             document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+        }
+
+        function showLogIn() {
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('Navbar').classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.remove('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+        }
+
+        function showRegister() {
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('Navbar').classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.remove('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+        }
+
+        function favouritesList(){
+          FavouriteCardService.getFavourites();
+          showFavouriteCards();
+
         }
     </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -480,6 +494,7 @@
     <script type="text/javascript" src="js\CardService.js"></script>
     <script type="text/javascript" src="js\MeaningService.js"></script>
     <script type="text/javascript" src="js\FavouriteCardService.js"></script>
+    <script type="text/javascript" scr="js/toastr.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>  UserService.init();</script>
     <script>  CardService.init();</script>

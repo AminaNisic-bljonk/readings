@@ -1,6 +1,6 @@
 var HoroscopeService = {
     init: function(){
-        document.getElementById("day-container").classList.add('d-none');
+
         var buttons = document.getElementsByClassName("sign");
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function(e) {
@@ -24,7 +24,9 @@ var HoroscopeService = {
             success: function (data) {
                 console.log(data);
                 console.log("data");
-                document.getElementById("button-container").classList.add('d-none');
+                document.getElementById("horoscopegrid").classList.add('d-none');
+                document.getElementById("DailyHoroscope").classList.remove('d-none');
+                document.getElementById("readings-container").classList.remove('d-none');
                 document.getElementById("day-container").classList.remove('d-none');
                 document.getElementById("reading").innerHTML = data.description;
                 document.getElementById("luckynumber").innerHTML = data.lucky_number;
@@ -34,14 +36,9 @@ var HoroscopeService = {
 
 
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                //console.log(data);
-                //toastr.error("error");
-                console.log("bad")
-                console.log(errorThrown);
-                console.log(textStatus);
-                console.log(JSON.stringify(XMLHttpRequest));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON.message));
+
+                toastr.error("external API malfunction");
+
             }
         });
 
@@ -58,21 +55,18 @@ var HoroscopeService = {
             success: function (data) {
                 console.log(data);
                 console.log("data");
-                document.getElementById("button-container").classList.add('d-none');
+                document.getElementById("horoscopegrid").classList.add('d-none');
+                document.getElementById("DailyHoroscope").classList.remove('d-none');
                 document.getElementById("day-container").classList.remove('d-none');
+                document.getElementById("readings-container").classList.remove('d-none');
                 document.getElementById("general").innerHTML = data[0].sign_description;
             },
 
 
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                //console.log(data);
-                //toastr.error("error");
-                console.log("bad")
-                console.log(errorThrown);
-                console.log(textStatus);
-                console.log(JSON.stringify(XMLHttpRequest));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON.message));
+
+                toastr.error("external API malfunction");
+
             }
         });
 
@@ -103,22 +97,17 @@ var HoroscopeService = {
             success: function (data) {
                 console.log(data);
                 console.log("data");
-                document.getElementById("button-container").classList.add('d-none');
+                document.getElementById("horoscopegrid").classList.add('d-none');
+                document.getElementById("DailyHoroscope").classList.remove('d-none');
                 document.getElementById("day-container").classList.remove('d-none');
+                document.getElementById(day).classList.add('text')
                 document.getElementById("reading").innerHTML = data.description;
                 document.getElementById("luckynumber").innerHTML = data.lucky_number;
             },
 
 
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                //console.log(data);
-                //toastr.error("error");
-                console.log("bad")
-                console.log(errorThrown);
-                console.log(textStatus);
-                console.log(JSON.stringify(XMLHttpRequest));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON));
-                console.log(JSON.stringify(XMLHttpRequest.responseJSON.message));
+                  toastr.error("external API malfunction");
             }
         });
 
