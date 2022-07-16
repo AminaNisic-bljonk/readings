@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <title>Tarothead</title>
+
+    <link rel="icon" type="image/x-icon" href="./images/icon1.png">
+</head>
+
+<body style="background-image: url('images/backgroundgradient.png'); font-size: 20px;" id="background"
+    class="d-flex flex-column min-vh-100">
+
+    <!--LOGIN-->
+
+    <div id="LogIn">
+        <section class="vh-100 gradient-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+
+                                <div class="mb-md-5 mt-md-4 pb-5">
+
+                                        <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                                        <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                                    <form id="login-form">
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label text-white">Email Address</label>
+                                            <input type="text" class="form-control" id="emailLogIn" name="emailLogIn"
+                                                placeholder="Enter your email address" />
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label text-white">Password</label>
+                                            <input type="password" class="form-control" id="passwordLogIn" name="passwordLogIn"
+                                                placeholder="Enter your password" />
+                                        </div>
+                                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Don't have an account? <a href="#!"
+                                            class="text-white-50 fw-bold" onclick="showRegister()">Sign
+                                            Up</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--REGISTER-->
+
+    <div class="d-none" id="Register">
+        <section class="vh-100 gradient-custom">
+            <div class=" container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+
+                                <div class="mb-md-5 mt-md-4 pb-5">
+                                    <form id="signup-form">
+                                        <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                                        <p class="text-white-50 mb-5">Please enter your information!</p>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label text-white">Email Address</label>
+                                            <input type="text" class="form-control" id="emailSignUp" name="emailSignUp"
+                                                placeholder="Enter your email address" />
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label text-white">Username</label>
+                                            <input type="text" class="form-control" id="usernameSignUp" name="usernameSignUp"
+                                                 placeholder="Enter your username" />
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label text-white">Password</label>
+                                            <input type="password" class="form-control" id="passwordSignUp" name="passwordSignUp"
+                                                placeholder="Enter your password" />
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label text-white">Confirm your Password</label>
+                                            <input type="password" class="form-control" id="passwordSignUpConfirm"
+                                                name="passwordSignUpConfirm" placeholder="Confirm your password" />
+                                        </div>
+
+
+                                        <button id="buttonSignUp" class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Already have an account? <a href="#!"
+                                            class="text-white-50 fw-bold" onclick="showLogIn()">Log
+                                            In</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--NAVBAR-->
+
+    <div class="d-none" id="Navbar">
+        <div style="font-size: 25px;">
+            <nav class="navbar navbar-expand-sm navbar-light" aria-label="navbar" id="navbar">
+                <div class="container-fluid" id="navbar-container">
+                    <a class="navbar-brand ms-3" id="navbar-brand" style="font-size: 33px; margin-right: 30px;"
+                        onclick="showMain()">Tarothead</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarsExample03">
+                        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" onclick="showHoroscope()">Horoscope</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" onclick="showCompatibility()">Compatibility</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="favouritesListButton" class="nav-link active" onclick="favouritesList()">Favourite Cards</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="cardsListButton" class="nav-link active" onclick="cardsList()">Card Meanings</a>
+                            </li>
+                        </ul>
+                        <!-- LOG IN -->
+                        <button id="sign-in" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                            data-bs-target="#modalFormLog">Log In</button>
+                        <a class="nav-link active text-dark" id="or">or</a>
+                        <button id="sign-up" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                            data-bs-target="#modalFormSign">Sign up</button>
+                        <button id="sign-out" type="button" class="btn btn-outline-dark me-4" data-bs-toggle="modal"
+                            data-bs-target="#modalFormSign" onclick="UserService.logout()">Log Out</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!--MAIN-->
+
+    <div class="d-none" id="MainPage">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div id="welcome">
+                        WELCOME TO TAROTHEAD!
+                    </div>
+                    <div class="mb-5">
+                        Flip the card to reveal today's fortune!
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <p class="mb-3">click on card to get meaning</p>
+                    <div id="cardContainer">
+                    </div>
+                    <div id="staticImage">
+                    </div>
+
+                    <div id="card" class="d-none mt-5">
+                    </div>
+                    <button class="d-none" id="addtofavorite" onclick="FavouriteCardService.addFavourite();">Add to
+                        favourites</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--HOROSCOPE-->
+
+    <div id="horoscopegrid" class="d-none">
+        <div class="container mt-5" id="button-container">
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="aries" width="120px" height="120px"><img src="images/ikonice/Aries.png"
+                            alt="horoscope" width="100%" height="100%">Aries</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="taurus" width="120px" height="120px"><img
+                            src="images/ikonice/Taurus.png" alt="horoscope" width="100%" height="100%">Taurus</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="gemini" width="120px" height="120px"><img
+                            src="images/ikonice/Gemini.png" alt="horoscope" width="100%" height="100%">Gemini</button>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="cancer" width="120px" height="120px"><img
+                            src="images/ikonice/Cancer.png" alt="horoscope" width="100%" height="100%">Cancer</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="leo" width="120px" height="120px"><img src="images/ikonice/Leo.png"
+                            alt="horoscope" width="100%" height="100%">Leo</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="scorpio" width="120px" height="120px"><img
+                            src="images/ikonice/Scorpio.png" alt="horoscope" width="100%" height="100%">Scorpio</button>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="libra" width="120px" height="120px"><img src="images/ikonice/Libra.png"
+                            alt="horoscope" width="100%" height="100%">Libra</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="virgo" width="120px" height="120px"><img src="images/ikonice/Virgo.png"
+                            alt="horoscope" width="100%" height="100%">Virgo</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="sagittarius" width="120px" height="120px"><img
+                            src="images/ikonice/Sagittarius.png" alt="horoscope" width="100%"
+                            height="100%">Sagittarius</button>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="capricorn" width="120px" height="120px"><img
+                            src="images/ikonice/Capricorn.png" alt="horoscope" width="100%"
+                            height="100%">Capricorn</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="aquarius" width="120px" height="120px"><img
+                            src="images/ikonice/Aquarius.png" alt="horoscope" width="100%"
+                            height="100%">Aquarius</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="sign p-3" id="pisces" width="120px" height="120px"><img
+                            src="images/ikonice/Pisces.png" alt="horoscope" width="100%" height="100%">Pisces</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--DAILY HOROSCOPE-->
+
+    <div class="d-none" id="DailyHoroscope">
+        <div class="container" id="day-container">
+            <div class="row text-center">
+                <div class="col mt-2 mb-2">
+                    <button class="day p-3 bg-transparent border-0" id="yesterday"
+                        style="font-weight:bold; font-size: 27px;">YESTERDAY</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="day p-3 bg-transparent border-0" id="today"
+                        style="font-weight:bold; font-size: 27px;">TODAY</button>
+                </div>
+                <div class="col mt-2 mb-2">
+                    <button class="day p-3 bg-transparent border-0" id="tomorrow"
+                        style="font-weight:bold; font-size: 27px;">TOMORROW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-none" id="readings-container">
+
+        <div class="row text-center">
+            <div class="col mt-5 mb-4">
+               <h1 id="sign"></h1>
+                <p id="general">treba uraditi</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col mt-4 mb-4">
+                <h3>Horoscope Reading: </h3>
+                  <p id="reading"></p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col mt-4 mb-4">
+                <h3>Compatible on this day with: </h3>
+                  <p id="compatible"></p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col mt-4 mb-4">
+              <h4>Lucky number of the day:</h4>
+                <p id="luckynumber"></p>
+            </div>
+        </div>
+    </div>
+
+    <!--FAVOURITES-->
+
+    <div class="d-none" id="Favourites">
+
+    </div>
+
+    <!--CARD MEANINGS-->
+
+    <div class="d-none" id="Meanings">
+
+      <!--accordion1-->
+</div>
+  </div>
+</div>
+
+
+    </div>
+
+
+    <!--COMPATIBILITY-->
+
+    <div class="d-none" id="Compatibility">
+        <div class="container text-center">
+            <div class="row mb-5 mt-5">
+                <div class="col">
+                    <div>COMPATIBLITY</div>
+                </div>
+            </div>
+            <div class="row mb-5 ">
+                <div class="col">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-lg  btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false" id="sign1">
+                            SIGN 1
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='1'>Aries</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='2'>Taurus</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='3'>3</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">4</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-lg btn-danger dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false" id="sign2">
+                                SIGN 2
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="changeButtonText2(this.innerText)" value='1'>Aries</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="changeButtonText2(this.innerText)" value='2'>Taurus</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)">3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5 ">
+                <div class="col">
+                    <button id="SearchButtonInput" type="button" class="btn btn-lg btn-danger"
+                        onclick="CompatibilityService.getCompatibility()">
+                        Show compatibility
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--COMPATIBILITY AFTER SEARCH-->
+
+    <div class="d-none" id="CompatibilityAfterSearch">
+
+    </div>
+
+    <script>
+    function changeButtonText(value) {
+            var buttonVal = document.getElementById('sign1').innerText = value;
+        }
+    function changeButtonText2(value) {
+                var buttonVal = document.getElementById('sign2').innerText = value;
+            }
+
+        function showHoroscope() {
+            document.getElementById('horoscopegrid').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('DailyHoroscope').classList.remove('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('Meanings').classList.add('d-none');
+        }
+
+        function showCompatibility() {
+            document.getElementById('Compatibility').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Meanings').classList.add('d-none');
+        }
+
+        function showFavouriteCards() {
+            document.getElementById('Favourites').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('Meanings').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+        }
+
+        function showMain() {
+            document.getElementById('MainPage').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Meanings').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+        }
+
+        function showLogIn() {
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('Navbar').classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Meanings').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.remove('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+        }
+
+        function showRegister() {
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('Navbar').classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('Meanings').classList.add('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.remove('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+        }
+        function showMeanings() {
+            document.getElementById('Meanings').classList.remove('d-none');
+            document.getElementById('Navbar').classList.remove('d-none');
+            document.getElementById('Compatibility').classList.add('d-none');
+            document.getElementById('Favourites').classList.add('d-none');
+            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
+            document.getElementById('horoscopegrid').classList.add('d-none');
+            document.getElementById('DailyHoroscope').classList.add('d-none');
+            document.getElementById('LogIn').classList.add('d-none');
+            document.getElementById('Register').classList.add('d-none');
+            document.getElementById('MainPage').classList.add('d-none');
+            document.getElementById('readings-container').classList.add('d-none');
+            document.getElementById("day-container").classList.add('d-none');
+        }
+
+        function favouritesList(){
+          FavouriteCardService.getFavourites();
+          showFavouriteCards();
+
+        }
+
+        function cardsList(){
+          MeaningService.getCardMeanings();
+          showMeanings();
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    </script>
+    <script src="js\jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js\HoroscopeService.js"></script>
+    <script type="text/javascript" src="js\CompatibilityService.js"></script>
+    <script type="text/javascript" src="js\UserService.js"></script>
+    <script type="text/javascript" src="js\CardService.js"></script>
+    <script type="text/javascript" src="js\MeaningService.js"></script>
+    <script type="text/javascript" src="js\FavouriteCardService.js"></script>
+    <script type="text/javascript" scr="js/toastr.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>  UserService.init();</script>
+    <script>  CardService.init();</script>
+    <script>  MeaningService.init();</script>
+    <script>  FavouriteCardService.init()</script>
+    <script>HoroscopeService.init();</script>
+
+</body>
+
+</html>
