@@ -263,15 +263,15 @@
         <div class="container" id="day-container">
             <div class="row text-center">
                 <div class="col mt-2 mb-2">
-                    <button class="day p-3 bg-transparent border-0" id="yesterday"
+                    <button class="day p-3 bg-transparent border-0 text-white" id="yesterday"
                         style="font-weight:bold; font-size: 27px;">YESTERDAY</button>
                 </div>
                 <div class="col mt-2 mb-2">
-                    <button class="day p-3 bg-transparent border-0" id="today"
+                    <button class="day p-3 bg-transparent border-0 text-white"  id="today"
                         style="font-weight:bold; font-size: 27px;">TODAY</button>
                 </div>
                 <div class="col mt-2 mb-2">
-                    <button class="day p-3 bg-transparent border-0" id="tomorrow"
+                    <button class="day p-3 bg-transparent border-0 text-white"id="tomorrow"
                         style="font-weight:bold; font-size: 27px;">TOMORROW</button>
                 </div>
             </div>
@@ -282,26 +282,26 @@
 
         <div class="row text-center">
             <div class="col mt-5 mb-4">
-               <h1 id="sign"></h1>
-                <p id="general">treba uraditi</p>
+               <h1 id="sign" class="text-white"></h1>
+                <p id="general" class="text-white">treba uraditi</p>
             </div>
         </div>
         <div class="row text-center">
             <div class="col mt-4 mb-4">
-                <h3>Horoscope Reading: </h3>
-                  <p id="reading"></p>
+                <h3 class="text-white">Horoscope Reading: </h3>
+                  <p id="reading" class="text-white"></p>
             </div>
         </div>
         <div class="row text-center">
             <div class="col mt-4 mb-4">
-                <h3>Compatible on this day with: </h3>
-                  <p id="compatible"></p>
+                <h3 class="text-white">Compatible on this day with: </h3>
+                  <p id="compatible" class="text-white"></p>
             </div>
         </div>
         <div class="row text-center">
-            <div class="col mt-4 mb-4">
-              <h4>Lucky number of the day:</h4>
-                <p id="luckynumber"></p>
+            <div class="col mt-4 mb-4" >
+              <h4 class="text-white">Lucky number of the day:</h4>
+                <p id="luckynumber" class="text-white"></p>
             </div>
         </div>
     </div>
@@ -337,7 +337,7 @@
             <div class="row mb-5 ">
                 <div class="col">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-lg  btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+                        <button type="button" class="btn btn-lg  btn-dark dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false" id="sign1">
                             SIGN 1
                         </button>
@@ -346,25 +346,25 @@
                             </li>
                             <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='2'>Taurus</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='3'>3</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='3'>Gemini</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">4</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='4'>Cancer</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='5'>Leo</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='6'>Virgo</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='7'>Libra</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='8'>Scorpio</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='9'>Sagittarius</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='10'>Capricorn</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='11'>Aquarius</a>
                             </li>
-                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)">eun1</a>
+                            <li><a class="dropdown-item" href="#" onclick="changeButtonText(this.innerText)" value='12'>Pisces</a>
                             </li>
                         </ul>
                     </div>
@@ -372,7 +372,7 @@
                 <div class="col">
                     <div class="col">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-lg btn-danger dropdown-toggle"
+                            <button type="button" class="btn btn-lg btn-dark dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false" id="sign2">
                                 SIGN 2
                             </button>
@@ -383,7 +383,25 @@
                                 <li><a class="dropdown-item" href="#"
                                         onclick="changeButtonText2(this.innerText)" value='2'>Taurus</a>
                                 </li>
-                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)">3</a>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='3'>Gemini</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='4'>Cancer</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='5'>Leo</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='6'>Virgo</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='7'>Libra</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='8'>Scorpio</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='9'>Sagittarius</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='10'>Capricorn</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='11'>Aquarius</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="changeButtonText2(this.innerText)" value='12'>Pisces</a>
                                 </li>
                             </ul>
                         </div>
@@ -392,7 +410,7 @@
             </div>
             <div class="row mb-5 ">
                 <div class="col">
-                    <button id="SearchButtonInput" type="button" class="btn btn-lg btn-danger"
+                    <button id="SearchButtonInput" type="button" class="btn btn-lg btn-dark"
                         onclick="CompatibilityService.getCompatibility()">
                         Show compatibility
                     </button>
