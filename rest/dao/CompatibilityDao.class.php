@@ -11,7 +11,7 @@ class CompatibilityDao extends BaseDao {
   }
 
   public function getCompatibility($sign1,$sign2){
-    return $this->query2("select * from compatibility where sign1=$sign1 AND sign2=$sign2;", ['sign1' => $sign1,'sign2' => $sign2]);
+    return $this->query("select * from compatibility where sign1_name=:sign1 AND sign2_name=:sign2;", ['sign1' => $sign1,'sign2' => $sign2]);
   }
 
 }
