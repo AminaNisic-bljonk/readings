@@ -63,8 +63,8 @@ Flight::register('favouriteCardService', 'FavouriteCardService');
   });*/
 
 require_once __DIR__.'/routes/userRoutes.php';
-require_once __DIR__.'/routes/CompatibilityRoutes.php';
-require_once __DIR__.'/routes/SignRoutes.php';
+require_once __DIR__.'/routes/compatibilityRoutes.php';
+require_once __DIR__.'/routes/signRoutes.php';
 require_once __DIR__.'/routes/horoscopeRoutes.php';
 require_once __DIR__.'/routes/cardRoutes.php';
 require_once __DIR__.'/routes/FavouriteCardRoutes.php';
