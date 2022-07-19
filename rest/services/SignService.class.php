@@ -10,5 +10,8 @@ class SignService extends BaseService {
   public function getSignByName($sign){
     return $this->dao->getSignByName($sign);
   }
+  public function getIdByName($sign){
+    return $this->dao->getIdByName($sign);
+  }
 
 }

@@ -63,9 +63,9 @@ ShowMeaning: function(id){
         var HTML="";
         HTML+=`
             <img src="./images/cards/`+id+`.jpg" alt="card" style="width:280px;height:450px;">
-            <p>`+data.CardName+`</p>
-            <p>`+data.CardDescription+`</p>
-            <p>`+data.Keyword+`</p>
+            <p class="text-white">`+data.CardName+`</p>
+            <p class="text-white">`+data.CardDescription+`</p>
+            <p class="text-white">`+data.Keyword+`</p>
             `
         $("#card").html(HTML);
           document.getElementById("cardContainer").classList.add('d-none');

@@ -12,9 +12,9 @@ var MeaningService = {
           success: function (data) {
             var HTML="";
             HTML+=`
-                <p>`+data.CardName+`</p>
-                <p>`+data.CardDescription+`</p>
-                <p>`+data.Keyword+`</p>
+                <p class="text-white">`+data.CardName+`</p>
+                <p class="text-white">`+data.CardDescription+`</p>
+                <p class="text-white">`+data.Keyword+`</p>
                 `
             $("#card").html(HTML);
           },

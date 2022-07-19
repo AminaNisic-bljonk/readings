@@ -52,11 +52,13 @@ var FavouriteCardService = {
                               <img src="images/cards/`+data[i].card_id+`.jpg" alt="slika" height="550.1235px" style="border-radius: 50px;">
                           </div>
                           <div class="col ms-4">
-                              <div class="mb-5" style="font-size: 27px;">
+                              <div class="mb-5" style="font-size: 27px;"><p class="text-white">
                                   `+data[i].CardName+`
+                              </p>
                               </div>
-                              <div class="mt-5" style="font-size: 25px;">
+                              <div class="mt-5" style="font-size: 25px;"><p class="text-white">
                                   `+data[i].CardDescription+`
+                              </p>
                               </div>
                           </div>
                       </div>
