@@ -46,8 +46,8 @@ var CompatibilityService = {
             </div>
             `
             $("#CompatibilityAfterSearch").html(html);
-            document.getElementById('CompatibilityAfterSearch').classList.remove('d-none');
-            document.getElementById('Compatibility').classList.add('d-none');
+            $('#CompatibilityAfterSearch').removeClass('d-none');
+            $('#Compatibility').addClass('d-none');
         },
 
 

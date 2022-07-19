@@ -3,20 +3,20 @@ var UserService = {
     init: function () {
         var token = localStorage.getItem("token");
         if (token) {
-            document.getElementById("sign-in").classList.add('d-none');
-            document.getElementById("sign-up").classList.add('d-none');
-            document.getElementById("or").classList.add('d-none');
-            document.getElementById("sign-out").classList.remove('d-none');
-            document.getElementById('MainPage').classList.remove('d-none');
-            document.getElementById('Navbar').classList.remove('d-none');
-            document.getElementById('Favourites').classList.add('d-none');
-            document.getElementById('Compatibility').classList.add('d-none');
-            document.getElementById('CompatibilityAfterSearch').classList.add('d-none');
-            document.getElementById('horoscopegrid').classList.add('d-none');
-            document.getElementById('DailyHoroscope').classList.add('d-none');
-            document.getElementById('LogIn').classList.add('d-none');
-            document.getElementById('Register').classList.add('d-none');
-            document.getElementById('readings-container').classList.add('d-none');
+            $("#sign-in").addClass('d-none');
+            $("#sign-up").addClass('d-none');
+            $("#or").addClass('d-none');
+            $("#sign-out").removeClass('d-none');
+            $('#MainPage').removeClass('d-none');
+            $('#Navbar').removeClass('d-none');
+            $('#Favourites').addClass('d-none');
+            $('#Compatibility').addClass('d-none');
+            $('#CompatibilityAfterSearch').addClass('d-none');
+            $('#horoscopegrid').addClass('d-none');
+            $('#DailyHoroscope').addClass('d-none');
+            $('#LogIn').addClass('d-none');
+            $('#Register').addClass('d-none');
+            $('#readings-container').addClass('d-none');
           var token = localStorage.getItem("token");
         var base64Url = token.split('.')[1];
         var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -25,11 +25,11 @@ var UserService = {
         }).join(''));
         parsedUser = JSON.parse(jsonPayload);
         console.log(parsedUser.username);
-        document.getElementById("welcome").innerHTML = "Hi, "+parsedUser.username +"! WELCOME TO TAROTHEAD";
+        $("#welcome").html("Hi, "+parsedUser.username +"! WELCOME TO TAROTHEAD");
 
     } else {
-      document.getElementById("sign-in").classList.remove('d-none');
-      document.getElementById("sign-out").classList.add('d-none');
+      $("#sign-in").removeClass('d-none');
+      $("#sign-out").addClass('d-none');
     }
 
 
@@ -164,7 +164,7 @@ register: function (user) {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            
+
             toastr.error("User already exists!");
 
 

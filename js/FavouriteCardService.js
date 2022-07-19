@@ -59,6 +59,7 @@ var FavouriteCardService = {
                               <div class="mt-5" style="font-size: 25px;"><p class="text-white">
                                   `+data[i].CardDescription+`
                               </p>
+                            
                               </div>
                           </div>
                       </div>
@@ -74,4 +75,6 @@ var FavouriteCardService = {
         });
 
     },
-}
+
+
+ }

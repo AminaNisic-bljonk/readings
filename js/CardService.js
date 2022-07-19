@@ -68,9 +68,9 @@ ShowMeaning: function(id){
             <p class="text-white">`+data.Keyword+`</p>
             `
         $("#card").html(HTML);
-          document.getElementById("cardContainer").classList.add('d-none');
-          document.getElementById("card").classList.remove('d-none');
-          document.getElementById("addtofavorite").classList.remove('d-none');
+          $("#cardContainer").addClass('d-none');
+          $("#card").removeClass('d-none');
+          $("#addtofavorite").removeClass('d-none');
       },
 
 
@@ -86,6 +86,32 @@ ShowMeaning: function(id){
       }
   });
 
+},
+specific: function(){
+  $.ajax({
+      type: "GET",
+      url: ' rest/cardSpecific',
+      data: JSON.stringify(card),
+      contentType: "application/json",
+      dataType: "json",
+      beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', localStorage.getItem("token"));
+      },
+
+      success: function (data) {
+        for(i=0;i<data.length;i++){
+          console.log(data[i].CardName);
+        }
+
+
+      },
+
+
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(errorThrown);
+            console.log(textStatus);
+      }
+  });
 }
 
 }

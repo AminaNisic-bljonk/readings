@@ -21,3 +21,5 @@ Flight::route("POST /addFavourite",  function(){
   $favourites = Flight::favouriteCardService()->getFavouriteById($id);
   Flight::json($favourites);
  });
+
+ 

@@ -11,4 +11,5 @@ class CardService extends BaseService {
     return $this->dao->getRandomCard($number);
   }
 
+
 }

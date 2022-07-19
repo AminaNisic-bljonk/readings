@@ -15,4 +15,5 @@ class CardDao extends BaseDao {
    $results = $this-> query2("SELECT * FROM cards ORDER BY RAND() LIMIT 1");
    return reset($results);
  }
+ 
 }

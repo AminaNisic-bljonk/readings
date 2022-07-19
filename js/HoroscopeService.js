@@ -24,13 +24,13 @@ var HoroscopeService = {
             success: function (data) {
                 console.log(data);
                 console.log("data");
-                document.getElementById("horoscopegrid").classList.add('d-none');
-                document.getElementById("DailyHoroscope").classList.remove('d-none');
-                document.getElementById("readings-container").classList.remove('d-none');
-                document.getElementById("day-container").classList.remove('d-none');
-                document.getElementById("reading").innerHTML = data.description;
-                document.getElementById("compatible").innerHTML = data.compatibility;
-                document.getElementById("luckynumber").innerHTML = data.lucky_number;
+                $("#horoscopegrid").addClass('d-none');
+                $("#DailyHoroscope").removeClass('d-none');
+                $("#readings-container").removeClass('d-none');
+                $("#day-container").removeClass('d-none');
+                $("#reading").html(data.description);
+                $("#compatible").html(data.compatibility);
+                $("#luckynumber").html(data.lucky_number);
                 HoroscopeService.getDay(StarSign);
 
             },
@@ -57,13 +57,13 @@ var HoroscopeService = {
                 console.log(data);
                 console.log("data");
                 console.log(name);
-                document.getElementById("horoscopegrid").classList.add('d-none');
-                document.getElementById("DailyHoroscope").classList.remove('d-none');
-                document.getElementById("day-container").classList.remove('d-none');
-                document.getElementById("readings-container").classList.remove('d-none');
-                document.getElementById("general").innerHTML = data[0].sign_description;
-                document.getElementById("general").innerHTML = data[0].sign_description;
-                document.getElementById("sign").innerHTML = data[0].sign_name;
+                $("#horoscopegrid").addClass('d-none');
+                $("#DailyHoroscope").removeClass('d-none');
+                $("#day-container").removeClass('d-none');
+                $("#readings-container").removeClass('d-none');
+                $("#general").html(data[0].sign_description);
+                $("#compatible").html(data[0].compatibility);
+                $("#sign").html(data[0].sign_name);
             },
 
 
@@ -101,12 +101,13 @@ var HoroscopeService = {
             success: function (data) {
                 console.log(data);
                 console.log("data");
-                document.getElementById("horoscopegrid").classList.add('d-none');
-                document.getElementById("DailyHoroscope").classList.remove('d-none');
-                document.getElementById("day-container").classList.remove('d-none');
-                document.getElementById(day).classList.add('text')
-                document.getElementById("reading").innerHTML = data.description;
-                document.getElementById("luckynumber").innerHTML = data.lucky_number;
+                $("#horoscopegrid").addClass('d-none');
+                $("#DailyHoroscope").removeClass('d-none');
+                $("#day-container").removeClass('d-none');
+                $(day).addClass('text')
+                $("#reading").html(data.description);
+                $("#compatible").html(data.compatibility);
+                $("#luckynumber").html(data.lucky_number);
             },
 
 
