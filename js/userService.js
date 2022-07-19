@@ -3,6 +3,7 @@ var UserService = {
     init: function () {
         var token = localStorage.getItem("token");
         if (token) {
+          try {
             $("#sign-in").addClass('d-none');
             $("#sign-up").addClass('d-none');
             $("#or").addClass('d-none');
@@ -17,15 +18,23 @@ var UserService = {
             $('#LogIn').addClass('d-none');
             $('#Register').addClass('d-none');
             $('#readings-container').addClass('d-none');
-          var token = localStorage.getItem("token");
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        parsedUser = JSON.parse(jsonPayload);
-        console.log(parsedUser.username);
-        $("#welcome").html("Hi, "+parsedUser.username +"! WELCOME TO TAROTHEAD");
+                var base64Url = token.split('.')[1];      //function for getting data from JWT key
+                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                parsedUser = JSON.parse(jsonPayload);
+                console.log(parsedUser.username);
+                $("#welcome").html("Hi, "+parsedUser.username +"! WELCOME TO TAROTHEAD");
+            }
+            catch (err) {
+                toastr.error("Invalid token. Reloading in 3 seconds.");
+                setTimeout(() => { this.logout(); }, 3000);
+
+            }
+
+
+
 
     } else {
       $("#sign-in").removeClass('d-none');

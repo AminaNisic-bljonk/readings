@@ -33,7 +33,7 @@ Flight::register('horoscopeService', 'HoroscopeService');
 Flight::register('cardService', 'CardService');
 Flight::register('favouriteCardService', 'FavouriteCardService');
 
-/*Flight::route('/*', function(){
+Flight::route('/*', function(){
 
     //return TRUE;
     //perform JWT decode
@@ -60,7 +60,7 @@ Flight::register('favouriteCardService', 'FavouriteCardService');
     $openapi = \OpenApi\scan('routes');
     header('Content-Type: application/json');
     echo $openapi->toJson();
-  });*/
+  });
 
 require_once __DIR__.'/routes/userRoutes.php';
 require_once __DIR__.'/routes/compatibilityRoutes.php';
